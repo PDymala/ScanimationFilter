@@ -6,22 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.camerakit.CameraKitView
+    <com.otaliastudios.cameraview.CameraView
         android:id="@+id/camera"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:adjustViewBounds="true"
         android:keepScreenOn="true"
-        app:camera_facing="back"
-        app:camera_flash="auto"
-        app:camera_focus="continuous"
-        app:camera_permissions="camera"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </com.camerakit.CameraKitView>
+        app:layout_constraintTop_toTopOf="parent"></com.otaliastudios.cameraview.CameraView>
 
     <com.diplabs.kinegramcam.MyView
         android:id="@+id/viewTouch"
@@ -67,6 +60,30 @@
         app:layout_constraintBottom_toBottomOf="@+id/camera"
         app:layout_constraintStart_toEndOf="@+id/buttonSettings"
         app:srcCompat="@drawable/ic_baseline_camera_24" />
+
+    <ImageButton
+        android:id="@+id/zoomUp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="8dp"
+        android:background="#B3FFFFFF"
+        android:onClick="zoomUp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonScreen"
+        app:srcCompat="@drawable/ic_baseline_zoom_in_24" />
+
+    <ImageButton
+        android:id="@+id/zoomDown"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#B3FFFFFF"
+        android:onClick="zoomDown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/zoomUp"
+        app:srcCompat="@drawable/ic_baseline_zoom_out_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
