@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -112,4 +111,5 @@ public class Settings extends AppCompatDialogFragment {
             e.printStackTrace();
         }
     }
+
 }

@@ -54,24 +54,36 @@
         android:id="@+id/buttonScreen"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
         android:background="#B3FFFFFF"
         android:onClick="screenChange"
-        app:layout_constraintBottom_toBottomOf="@+id/camera"
-        app:layout_constraintStart_toEndOf="@+id/buttonSettings"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSettings"
+        app:layout_constraintStart_toStartOf="@+id/camera"
         app:srcCompat="@drawable/ic_baseline_camera_24" />
+
+    <ImageButton
+        android:id="@+id/switchcolor"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="#B3FFFFFF"
+        android:onClick="switchcolor"
+        app:layout_constraintBottom_toTopOf="@+id/buttonScreen"
+        app:layout_constraintStart_toStartOf="@+id/camera"
+        app:srcCompat="@drawable/ic_baseline_dehaze_24" />
 
     <ImageButton
         android:id="@+id/zoomUp"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:background="#B3FFFFFF"
         android:onClick="zoomUp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonScreen"
+        app:layout_constraintStart_toEndOf="@+id/buttonSettings"
         app:srcCompat="@drawable/ic_baseline_zoom_in_24" />
 
     <ImageButton

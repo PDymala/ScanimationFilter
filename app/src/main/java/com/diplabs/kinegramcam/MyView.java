@@ -8,40 +8,45 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
-
-import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 public class MyView extends View {
 
     Paint paintTouchPointer;
 
-    private int initialAnimationSpeed = 1000;
+    private final int initialAnimationSpeed = 1000;
     private int animationSpeed = 1000;
     private int animationSpeedRatio = 1;
-    private int phase = 3;
+    private int phase = 2;
     private int segment = 4;
-
+    private int color_switch = 1;
 
     public int getAnimationSpeedRatio() {
         return animationSpeedRatio;
     }
 
+    public void toggleColorSwitch() {
+
+        if (color_switch == 1) {
+            paintTouchPointer.setColor(Color.WHITE);
+        } else {
+            paintTouchPointer.setColor(Color.BLACK);
+        }
+
+        color_switch = color_switch * -1;
+    }
+
     public void setAnimationSpeed(int animationSpeedRatio) {
-        if (animationSpeedRatio==0){
+        if (animationSpeedRatio == 0) {
             this.animationSpeedRatio = animationSpeedRatio;
             anim.pause();
 
 
-        }else {
+        } else {
             this.animationSpeedRatio = animationSpeedRatio;
-            animationSpeed= initialAnimationSpeed/animationSpeedRatio;
+            animationSpeed = initialAnimationSpeed / animationSpeedRatio;
             anim.setDuration(animationSpeed);
 
             if (anim.isPaused()){
@@ -165,7 +170,6 @@ public class MyView extends View {
 
         for (int i = 0; i < (windowWidth*2.2); i=i+phase) {
 //            canvas.drawRect(200, 50, 200 + segment, 300, paintTouchPointer);
-
             canvas.drawRect(startPosition+ segment*i-(windowWidth/2), 0, startPosition + (phase-1)*segment+ segment*i-(windowWidth/2), windowHeight, paintTouchPointer);
 //            Log.i(TAG, "onDraw: "+(startPosition+ segment*i));
         }

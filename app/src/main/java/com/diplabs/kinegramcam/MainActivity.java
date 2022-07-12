@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
         myView.setAnimationSpeed(speed);
         myView.setPhase(phase);
         myView.setSegment(segment);
-//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+
+
     }
 
 
@@ -45,14 +46,29 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 
-
+//        premissions();
         initalizeUI();
         initalizeCamera();
         initalizeVariables();
 
     }
+
+//    @SuppressLint("CheckResult")
+//    private void premissions() {
+//        RxPermissions rxPermissions = new RxPermissions(this);
+//        rxPermissions
+//                .request(Manifest.permission.CAMERA) // ask single or multiple permission once
+//                .subscribe(granted -> {
+//                    if (granted) {
+//                        cameraView.open();
+//                    } else {
+//                        // At least one permission is denied
+//                        cameraView.destroy();
+//                        //??
+//                    }
+//                });
+//    }
 
     public void initalizeCamera() {
         cameraView = findViewById(R.id.camera);
@@ -65,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
 
     @SuppressLint("ClickableViewAccessibility")
     public void initalizeUI() {
-        buttonZoomUp = findViewById(R.id.zoomUp);
+        buttonZoomUp = findViewById(R.id.switchcolor);
         buttonZoomDown = findViewById(R.id.zoomDown);
 
         myView = new MyView(this);
@@ -187,17 +203,18 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
     }
 
 
+    public void switchcolor(View view) {
+        myView.toggleColorSwitch();
+    }
 
+    public void screenChange(View view) {
 
-
-    public void screenChange(View view){
-
-        if (screenStatus == 0){
+        if (screenStatus == 0) {
 //          cameraView.open();
             myView.setBackgroundColor(Color.parseColor("#ffffffff"));
 
             screenStatus = 1;
-        } else{
+        } else {
 
 //            cameraView.close();
             myView.setBackgroundColor(Color.parseColor("#00ffffff"));
@@ -245,14 +262,14 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
 
     public void zoomUp(View view) {
         if (cameraView.getZoom() >= 0 && cameraView.getZoom() <= 1) {
-            cameraView.setZoom(cameraView.getZoom() + 0.1f);
+            cameraView.setZoom(cameraView.getZoom() + 0.05f);
         }
 
     }
 
     public void zoomDown(View view) {
-        if (cameraView.getZoom() >= 0.1 && cameraView.getZoom() <= 1) {
-            cameraView.setZoom(cameraView.getZoom() - 0.1f);
+        if (cameraView.getZoom() >= 0.05 && cameraView.getZoom() <= 1) {
+            cameraView.setZoom(cameraView.getZoom() - 0.05f);
         }
     }
 
