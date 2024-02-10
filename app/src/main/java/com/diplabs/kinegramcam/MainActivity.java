@@ -22,11 +22,13 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
     CameraView cameraView;
     private MyView myView;
     ImageButton buttonSettings;
-    ImageButton buttonCameraSwitch;
+    ImageButton buttonScreenSwitch;
     ImageButton buttonCloseApp;
     Settings settings;
     ImageButton buttonZoomUp;
     ImageButton buttonZoomDown;
+
+    ImageButton buttonSwitchColor;
     boolean visibleUI = true;
     int screenStatus = 0;  // 0 camera , 1 = screen
 
@@ -81,8 +83,13 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
 
     @SuppressLint("ClickableViewAccessibility")
     public void initalizeUI() {
-        buttonZoomUp = findViewById(R.id.switchcolor);
+        buttonZoomUp = findViewById(R.id.zoomUp);
         buttonZoomDown = findViewById(R.id.zoomDown);
+        buttonSettings = findViewById(R.id.buttonSettings);
+        buttonScreenSwitch = findViewById(R.id.buttonScreen);
+        buttonCloseApp = findViewById(R.id.buttonCloseApp);
+        buttonSwitchColor = findViewById(R.id.switchcolor);
+
 
         myView = new MyView(this);
         myView = findViewById(R.id.viewTouch);
@@ -121,10 +128,6 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
 
         });
 
-        buttonSettings = findViewById(R.id.buttonSettings);
-        buttonCameraSwitch = findViewById(R.id.buttonScreen);
-
-        buttonCloseApp = findViewById(R.id.buttonCloseApp);
 
     }
 
@@ -275,22 +278,24 @@ public class MainActivity extends AppCompatActivity implements Settings.SettingD
 
     public void showUI() {
 
+
         buttonZoomUp.setVisibility(View.VISIBLE);
         buttonZoomDown.setVisibility(View.VISIBLE);
         buttonSettings.setVisibility(View.VISIBLE);
-        buttonCameraSwitch.setVisibility(View.VISIBLE);
+        buttonScreenSwitch.setVisibility(View.VISIBLE);
         buttonCloseApp.setVisibility(View.VISIBLE);
+        buttonSwitchColor.setVisibility(View.VISIBLE);
 
     }
 
     public void hideUI() {
 
-
         buttonZoomUp.setVisibility(View.INVISIBLE);
         buttonZoomDown.setVisibility(View.INVISIBLE);
         buttonSettings.setVisibility(View.INVISIBLE);
-        buttonCameraSwitch.setVisibility(View.INVISIBLE);
+        buttonScreenSwitch.setVisibility(View.INVISIBLE);
         buttonCloseApp.setVisibility(View.INVISIBLE);
+        buttonSwitchColor.setVisibility(View.INVISIBLE);
     }
 
 

@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/switchcolor2"
+        android:id="@+id/switchcolor"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -38,7 +38,7 @@
         app:srcCompat="@drawable/ic_baseline_dehaze_24" />
 
     <ImageButton
-        android:id="@+id/zoomUp2"
+        android:id="@+id/zoomUp"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -46,11 +46,11 @@
         android:background="#B3FFFFFF"
         android:onClick="zoomUp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/switchcolor2"
+        app:layout_constraintStart_toEndOf="@+id/switchcolor"
         app:srcCompat="@drawable/ic_baseline_zoom_in_24" />
 
     <ImageButton
-        android:id="@+id/zoomDown2"
+        android:id="@+id/zoomDown"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -58,7 +58,7 @@
         android:background="#B3FFFFFF"
         android:onClick="zoomDown"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/zoomUp2"
+        app:layout_constraintStart_toEndOf="@+id/zoomUp"
         app:srcCompat="@drawable/ic_baseline_zoom_out_24" />
 
     <ImageButton
